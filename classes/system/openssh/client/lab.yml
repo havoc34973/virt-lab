@@ -1,0 +1,44 @@
+applications:
+- openssh
+parameters:
+  _param:
+    cluster_private_key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpAIBAAKCAQEApNTbxg41J9QP483jdb6YBfFTfsRG6pesZ2X57zCcVp+WrIR1
+        xHWdJHYdsAZmOSNpXmgOKazm13r4CfyVDKu5rEm6HZYgaPih5YnHuOQEW8f/5RBx
+        JSpruZFXy2BSbwTyUfNr7gJ18WO5i1/MISx6JZg4ZIft/6zJ3n5MBM4QlZ6igSCN
+        N7LxvpOtpdQYKanNBqd1OaasfRMt1nLsgq4PncQBiVHMC3T7auyccbMC35YUgFi7
+        Ggu+ctRr+mgTgu9riZwxcsE6v5ZGOw7j1amvvqfbs4fA+7ApWpdlY/PG2Ip5urSD
+        MQa5iFyP9yZTh8E08jzxOAau4FtxkaDZYZRIYQIDAQABAoIBAQCbOfH2ZG7eoTCN
+        odkxi1nzTr8IxKLcThYIEdr7zFWOph/pO50EdJaWPb3bhUtDR/v08h1UVgXWq3Fn
+        Rjy/gAENJSlmr3i6IlukpMo3blREcuaju4YyL+7fBOcfGgjHkGr7jjf4Hs0flICp
+        pn/ARfiJ6v5Aflo9y2UYaOwCImUv4H93xNI7HC5xzi7MrBh2r/BNCPKYvwnGJuh/
+        IZMpbaURrTgJ1IU0KKiuAmZWjLNQ8Hdehb77rALM7ELjjyp4rIB5Y2liIMLUzOh1
+        ph7ddjGrHj9c9WU+q952+zLDKsWCxakyVVtO1cgUm3pLEgfoXd1uIgdPHYfotEGI
+        mfD9Y+bZAoGBANaSQPi+dKuzXrNu8++4cOycgNexNclQUNdES/IC28ny4DNUEhV6
+        hl2vZdCHB43yxo8Nl2BDGAq75xlejFe9WwbgMgjgPW81vlq2b5ZqPKDxYPKyCodM
+        TwYZKg+lIceE+1y+v7e8/tbC2RB41z8ByBU84lkbbgqUVgTA6G0Leq+vAoGBAMSo
+        FYkszdevUfGdyiC/suD5h7xchke06CwwAR+iqy4m2k7YuTnHJ2wasyLaSh9p2IVc
+        d9kLyKUVz1nLMaUGf5/C8PqEFnxU/fN0b00BrvJXgpzvyGSIV9VawWwVnwRShob2
+        iWpZoymqckFwRWUZSFU9v1DWd+keL6ywfDBpBvzvAoGAWK/6ytVtw8pPyjqB+QNz
+        KVlGp+BHKv5Xa6J/AXjM/5uzr4OANgB+qRpmKtqk9Lbz+wzTFKamuUkRLBs4Rsut
+        ZBomlCSbP+wm0be2R6WBicQ7HhUY5PNVdl/QUscePyln+92bwIYNjxbaQUSxMwm5
+        eY3AwLPlt9m39B8H8opcG2ECgYEAgCjiUBFo3IUfLA0e6xTDKKa19OV/hT+6hwGJ
+        2eoTEPK1FulaXPMTF/qWf8IuyCYcu1y1pjdtvVhnVyd65QdFKQLMNRbb6I8jKQPa
+        fR75ummZb1k9CXdpdlu87glxJkn57f7BMxPTp5Wy/D6EmwxM/XBOPApo/v1zKGGj
+        rZDkwvUCgYA9qQdi+pI92xvv2MyAD56YF7E53zrTwtWsMqJf6gZwoEMi14e4CqZs
+        owRtyxgI8DIXk0A/QCiNzz9qt0lCKURnVnpF0QoRe2BSL9pLFpZEsJOO275uppuD
+        9jNnuF/yDyMdLt5ey+m2s1MVGSl7fKfB2m5PCrCmDsdZqP73FQ7Vig==
+        -----END RSA PRIVATE KEY-----
+  openssh:
+    client:
+      enabled: true
+      user:
+        root:
+          enabled: true
+          user: ${linux:system:user:root}
+          private_key: ${private_keys:lab}
+  private_keys:
+    lab:
+      type: rsa
+      key: ${_param:cluster_private_key}
