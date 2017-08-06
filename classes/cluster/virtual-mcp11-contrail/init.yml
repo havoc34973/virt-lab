@@ -10,7 +10,7 @@ classes:
 - system.telegraf.agent
 - cluster.virtual-mcp11-contrail.infra
 - cluster.virtual-mcp11-contrail.openstack
-- cluster.virtual-mcp11-contrail.stacklight
+#- cluster.virtual-mcp11-contrail.stacklight
 - cluster.overrides
 parameters:
   _param:
