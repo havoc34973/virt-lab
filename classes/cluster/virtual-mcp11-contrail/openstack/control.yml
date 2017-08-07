@@ -89,7 +89,7 @@ parameters:
       admin_email: ${_param:admin_email}
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
   designate:
     server:
       pools:
@@ -126,12 +126,12 @@ parameters:
       workers: 1
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
   heat:
     server:
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
   nova:
     controller:
       networking: contrail
@@ -150,7 +150,7 @@ parameters:
       workers: 1
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
   neutron:
     server:
       plugin: contrail
@@ -160,13 +160,13 @@ parameters:
         version: ${_param:opencontrail_version}
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
   cinder:
     volume:
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
     controller:
       notification:
         driver: messagingv2
-        topics: "notifications,${_param:stacklight_notification_topic}"
+        topics: "notifications"
